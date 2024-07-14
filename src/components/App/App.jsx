@@ -3,15 +3,16 @@ import { useEffect, lazy, Suspense} from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import PrivateRoute from '../../routes/PrivatRoutes';
 import PublicRoute from '../../routes/PublicRoutes';
-import { authOperations, authSelectors } from '../../redux/auth';
+import authOperations from '../../redux/auth/authOperations';
+import authSelectors from '../../redux/auth/authSelectors';
 import Loader from '../Loader/Loader';
 import AppBar from '../AppBar/AppBar';
 import { ToastContainer } from 'react-toastify';
 
-const PageHome = lazy(() => import('pages/PageHome'));
-const PageRegistration = lazy(() => import('pages/PageRegistration'));
-const PageLogin = lazy(() => import('pages/PageLogin'));
-const PageContacts = lazy(() => import('pages/PageContacts'));
+const PageHome = lazy(() => import('pages/PageHome/PageHome'));
+const PageRegistration = lazy(() => import('pages/PageRegistration/PageRegistration'));
+const PageLogin = lazy(() => import('pages/PageLogin/PageLogin'));
+const PageContacts = lazy(() => import('pages/PageContacts/PageContacts'));
 
 const App = () => {
   const dispatch = useDispatch();

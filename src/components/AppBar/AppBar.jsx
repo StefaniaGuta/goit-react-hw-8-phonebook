@@ -1,9 +1,8 @@
 import { useSelector } from 'react-redux';
-import { authSelectors } from '../../redux/auth';
+import  authSelectors from '../../redux/auth/authSelectors';
 import AuthForm from '../AuthForm/AuthForm';
 import Navigation from '../Navigation/Navigation';
 import UserMenu from '../UserMenu/UserMenu';
-
 import { Header, Box } from './AppBar.styled'
 
 function AppBar() {

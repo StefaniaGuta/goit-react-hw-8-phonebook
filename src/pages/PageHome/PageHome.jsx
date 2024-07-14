@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { authSelectors } from '../../redux/auth';
+import authSelectors from '../../redux/auth/authSelectors';
 import {PageHomeSection, PageHomeTitle, PageHomeText, PageHomeTitle2 } from './PageHome.styled';
 
 function PageHome() {
@@ -12,7 +12,8 @@ function PageHome() {
         {!isLoggedIn && (      
           
           <PageHomeText> Please, <b>Sign up</b> or <b>Log in</b> to have access to the
-            Phonebook!</PageHomeText>
+            Phonebook!
+          </PageHomeText>
       )}
       </PageHomeSection>
       

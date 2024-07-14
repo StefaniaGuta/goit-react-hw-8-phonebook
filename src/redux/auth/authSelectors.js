@@ -13,4 +13,5 @@ const authSelectors = {
   getIsLoggedIn,
   getUserError,
 };
+
 export default authSelectors;
