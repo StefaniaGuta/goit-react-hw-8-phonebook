@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Form, Label, Input, Button } from './ContactForm.styled';
+import style from './ContactForm.module.css';
 import toast, { Toaster } from 'react-hot-toast';
 import { nanoid } from 'nanoid'
 import { useFetchContactsQuery, useCreateContactMutation } from '../../redux/contacts/contactsApi';
@@ -55,10 +55,10 @@ function ContactForm  () {
   };
 
     return (
-      <Form onSubmit={handleSubmit} autoComplete='off'>
-        <Label>
+      <form className={style.Form} onSubmit={handleSubmit} autoComplete='off'>
+        <label className={style.Label}>
           Name
-          <Input
+          <input className={style.Input}
             type="text"
             id="name_input"
             name="name"
@@ -69,11 +69,11 @@ function ContactForm  () {
             title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
             required
           />
-        </Label>
+        </label>
 
-        <Label>
+        <label className={style.Label}>
           Number
-          <Input
+          <input lassName={style.Input}
             type="tel"
             id="name_input"
             name="number"
@@ -84,12 +84,12 @@ function ContactForm  () {
             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
             required            
           />
-        </Label>
+        </label>
 
-        <Button type="submit" >Add contact</Button>
+        <button className={style.Button} type="submit" >Add contact</button>
         <Toaster />
         {isLoading && <Loader />}
-      </Form>
+      </form>
     );
 
 };

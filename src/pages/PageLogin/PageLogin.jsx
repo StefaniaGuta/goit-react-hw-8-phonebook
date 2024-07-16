@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import authOperations from '../../redux/auth/authOperations';
 
-import {PageLoginSection, PageLoginTitle, PageHomeLabel, PageHomeInput, PageHomeBtn} from './PageLogin.styled';
+import style from './PageLogin.module.css';
 
 function PageLogin() {
   const dispatch = useDispatch();
@@ -22,12 +22,12 @@ function PageLogin() {
   const { email, password } = form;
 
   return (
-    <PageLoginSection>
-      <PageLoginTitle>Please enter your email and password</PageLoginTitle>
+    <section className={style.PageLoginSection}>
+      <h1 className={style.PageLoginTitle}>Please enter your email and password</h1>
       <form onSubmit={handleSubmit}>
-        <PageHomeLabel>
+        <label className={style.PageHomeLabel}>
           Email
-          < PageHomeInput
+          < input className={style.PageHomeInput}
             type="email"
             name="email"
             pattern="([A-z0-9_.-]{1,})@([A-z0-9_.-]{1,}).([A-z]{2,8})"
@@ -37,10 +37,11 @@ function PageLogin() {
             value={email}
             onChange={handleChange}
           />
-        </PageHomeLabel>
-        < PageHomeLabel>
+        </label>
+
+        < label className={style.PageHomeLabel}>
           Password
-          <PageHomeInput
+          <input className={style.PageHomeInput}
             type="password"
             name="password"
             title="Enter your password"
@@ -48,10 +49,10 @@ function PageLogin() {
             value={password}
             onChange={handleChange}
           />
-            <PageHomeBtn PageHomeBtn type="submit" >Log In</PageHomeBtn>
-        </PageHomeLabel>
+            <button className={style.pageHomeBtn} type="submit" >Log In</button>
+        </label>
       </form>
-    </PageLoginSection>
+    </section>
   );
 };
 

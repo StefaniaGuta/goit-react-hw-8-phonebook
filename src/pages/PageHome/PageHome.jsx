@@ -1,21 +1,24 @@
 import { useSelector } from 'react-redux';
 import authSelectors from '../../redux/auth/authSelectors';
-import {PageHomeSection, PageHomeTitle, PageHomeText, PageHomeTitle2 } from './PageHome.styled';
+import style from './PageHome.module.css';
 
 function PageHome() {
   const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
   return (
     <>
-      <PageHomeSection>
-            <PageHomeTitle>Welcome 👋</PageHomeTitle>
-        <PageHomeTitle2>Now you will exactly not forget your contacts!</PageHomeTitle2>
+      <section className={style.PageHomeSection}>
+            <h1 className={style.PageHomeTitle}>Welcome</h1>
+        <p className={style.PageHomeTitle2}>Organize your contacts easily and stay connected <br></br>with loved
+            ones. Use digital tools to create and maintain <br></br>a
+            comprehensive contact list, and keep in touch through PHONEBOOK.
+            </p>
         {!isLoggedIn && (      
           
-          <PageHomeText> Please, <b>Sign up</b> or <b>Log in</b> to have access to the
+          <p className={style.PageHomeText}> Please, <b>Sign up</b> or <b>Log in</b> to have access to the
             Phonebook!
-          </PageHomeText>
+          </p>
       )}
-      </PageHomeSection>
+      </section>
       
     </>
   );

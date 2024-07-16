@@ -1,9 +1,9 @@
 import { Oval } from 'react-loader-spinner';
-import { LoaderContainer } from './Loader.styled';
+import style from './Loader.module.css';
 
 const Loader = () => {
   return (
-    <LoaderContainer role="alert">
+    <section className={style.LoaderContainer} role="alert">
       <Oval
         height={80}
         width={80}
@@ -15,7 +15,7 @@ const Loader = () => {
         secondaryColor="yellow"
         strokeWidth={2}
         strokeWidthSecondary={2} />
-    </LoaderContainer>
+    </section>
   );
 };
 

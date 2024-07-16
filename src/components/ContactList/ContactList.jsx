@@ -1,7 +1,7 @@
 import ContactItem from '../ContactItem/ContactItem';
 import React from 'react';
 import Loader from '../Loader/Loader';
-import { List, Error } from './ContactList.styled';
+import style from './ContactList.module.css';
 import { useSelector} from 'react-redux';
 import { useFetchContactsQuery} from '../../redux/contacts/contactsApi';
 import { getFilter } from '../../redux/contacts/contactsSelectors';
@@ -27,16 +27,16 @@ const ContactList = () => {
 
   return (
     <>
-      <List>
+      <list className={style.List}>
       {renderContacts &&
         contactList.map(({ id, name, number }) => (
           <ContactItem id={id} key={id} name={name} number={number} />
         ))}
       {isLoading && <Loader />}
       {error && (
-        <Error>Try adding phone details or contact your administrator</Error>
+        <error className={style.Error}>Try adding phone details or contact your administrator</error>
       )}
-    </List>
+    </list>
       
   
     </>

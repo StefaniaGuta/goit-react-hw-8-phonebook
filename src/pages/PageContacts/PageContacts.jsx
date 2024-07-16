@@ -1,19 +1,19 @@
 import ContactForm from '../../components/ContactForm/ContactForm';
 import ContactList from '../../components/ContactList/ContactList';
 import Filter from '../../components/Filter/Filter';
-import {PageContactSection, PageContactTitle} from './PageContacts.styled';
+import style from './PageContacts.module.css';
 
 function PageContacts() {
   return (
-    <PageContactSection>
-      <PageContactTitle>PHONEBOOK APP</PageContactTitle>
+    <section className={style.PageContactSection}>
+      <h1 className={style.PageContactTitle}>PHONEBOOK APP</h1>
       <h2>Add new contact</h2>
       <ContactForm />
 
       <h2>Contacts</h2>
       <Filter />
       <ContactList />
-    </PageContactSection>
+    </section>
   );
 }
 

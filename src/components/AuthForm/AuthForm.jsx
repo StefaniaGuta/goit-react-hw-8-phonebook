@@ -1,13 +1,15 @@
-import { Link } from './AuthForm.styled';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import style from './AuthForm.module.css';
 
 function AuthForm() {
   return (
     <nav>
-      <Link to="/register">
+      <Link className={style.Link} to="/register">
         Sign up
       </Link>
       
-      <Link to="/login">
+      <Link className={style.Link} to="/login">
         Log in
       </Link>
     </nav>

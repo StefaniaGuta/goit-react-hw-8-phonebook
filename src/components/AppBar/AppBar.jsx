@@ -3,18 +3,18 @@ import  authSelectors from '../../redux/auth/authSelectors';
 import AuthForm from '../AuthForm/AuthForm';
 import Navigation from '../Navigation/Navigation';
 import UserMenu from '../UserMenu/UserMenu';
-import { Header, Box } from './AppBar.styled'
+import style from './AppBar.module.css'
 
 function AppBar() {
   const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
 
   return (
-    <Header>
-      <Box>
+    <section className={style.Header}>
+      <div className={style.Box}>
         <Navigation />
         {isLoggedIn ? <UserMenu /> : <AuthForm />}
-      </Box>
-    </Header>
+      </div>
+    </section>
   );
 }
 

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import authOperations from '../../redux/auth/authOperations';
 
-import {PageRegistrationSection, PageRegistrationTitle, PageRegistrationLabel, PageRegistrationInput, PageRegistrationBtn } from './PageRegistration.styled';
+import style from './PageRegistration.module.css';
 
 function PageRegistration() {
   const dispatch = useDispatch();
@@ -22,12 +22,12 @@ function PageRegistration() {
   const { name, email, password } = form;
 
   return (
-    <PageRegistrationSection>
-      <PageRegistrationTitle>Please enter your registration details</PageRegistrationTitle>
+    <section className={style.PageRegistrationSection}>
+      <h1 className={style.PageRegistrationTitle}>Please enter your registration details</h1>
       <form onSubmit={handleSubmit}>
-        <PageRegistrationLabel>
+        <label className={style.PageRegistrationTitle}>
           Name
-          <PageRegistrationInput
+          <input className={style.PageRegistrationInput}
             type="text"
             name="name"
             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -37,10 +37,11 @@ function PageRegistration() {
             value={name}
             onChange={handleChange}
           />
-        </PageRegistrationLabel>
-        <PageRegistrationLabel>
+        </label>
+
+        <label className={style.PageRegistrationTitle}>
           Email
-          <PageRegistrationInput
+          <input className={style.PageRegistrationInput}
             type="email"
             name="email"
             pattern="([A-z0-9_.-]{1,})@([A-z0-9_.-]{1,}).([A-z]{2,8})"
@@ -50,22 +51,23 @@ function PageRegistration() {
             value={email}
             onChange={handleChange}
           />
-        </PageRegistrationLabel>
-        <PageRegistrationLabel>
+        </label>
+
+        <label className={style.PageRegistrationLabel}>
           Password
-          <PageRegistrationInput        
+          <input className={style.PageRegistrationInput}       
             type="password"
             name="password"
             required
             value={password}
             onChange={handleChange}
           />
-        </PageRegistrationLabel>
-        <PageRegistrationBtn type="submit">
+        </label>
+        <button className={style.PageRegistrationBtn} type="submit">
           Register
-        </PageRegistrationBtn>
+        </button>
       </form>
-    </PageRegistrationSection>
+    </section>
   );
 }
 export default PageRegistration;
