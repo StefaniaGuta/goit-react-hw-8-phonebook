@@ -38,7 +38,7 @@ function ContactForm  () {
   };
 
     const handleSubmit = e => {
-   e.preventDefault();
+    e.preventDefault();
 
     const newContact = {
       id: nanoid(),
