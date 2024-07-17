@@ -4,7 +4,6 @@
   max-width: 500px;
   margin: 0 auto;
   margin-top: 20px;
-
   width: 80%;
   max-width: 550px;
   margin: 1em auto;
@@ -28,7 +27,6 @@ text-shadow: 2px 2px 4px blue;
 }
 
 .PageHomeTitle2 {
-text-transform: uppercase;
 color: black;
 }
 
