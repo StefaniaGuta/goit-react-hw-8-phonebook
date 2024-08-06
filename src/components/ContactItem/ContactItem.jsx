@@ -9,9 +9,8 @@ function ContactItem({ id, name, number}) {
             <p>
                 {name}: {number} {' '}
             </p>
-            <button className= {style.Button} type="button" onClick={() => deleteContact(id)}
-        disabled={isDeleting}>
-               {isDeleting && <RotatingLines width="10" />}  Delete
+            <button className= {style.Button} type="button" onClick={() => deleteContact(id)}>
+                Delete
             </button>
         </item>
     );
