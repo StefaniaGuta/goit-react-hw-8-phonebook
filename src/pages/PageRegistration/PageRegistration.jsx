@@ -13,10 +13,14 @@ function PageRegistration() {
     setForm(prevForm => ({ ...prevForm, [name]: value }));
   };
 
+  const resetForm = () => {
+    setForm({ name: '', email: '', password: '' });
+  };
+  
   const handleSubmit = e => {
     e.preventDefault();
     dispatch(authOperations.register({ ...form }));
-    setForm({ name: '', email: '', password: '' });
+    resetForm();
   };
 
   const { name, email, password } = form;
@@ -30,7 +34,6 @@ function PageRegistration() {
           <input className={style.PageRegistrationInput}
             type="text"
             name="name"
-            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
             title="Name may contain only letters, apostrophe, dash and spaces."
             placeholder="Example John"
             required
@@ -44,7 +47,6 @@ function PageRegistration() {
           <input className={style.PageRegistrationInput}
             type="email"
             name="email"
-            pattern="([A-z0-9_.-]{1,})@([A-z0-9_.-]{1,}).([A-z]{2,8})"
             title="Enter your email"
             placeholder="Example user@mail.com"
             required

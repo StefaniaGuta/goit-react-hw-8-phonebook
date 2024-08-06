@@ -1,8 +1,8 @@
 import style from './ContactItem.module.css'
 import { RotatingLines } from 'react-loader-spinner';
-import { useDeleteContactMutation } from '../../redux/contacts/contactsApi';
+import deleteContact from '../../redux/contacts/contactOperations';
 
-function ContactItem({ id, name, number}) {const [deleteContact, { isLoading: isDeleting }] = useDeleteContactMutation();
+function ContactItem({ id, name, number}) {
   
     return (
         <item className={style.Item} key={id}>

@@ -1,45 +1,25 @@
-import ContactItem from '../ContactItem/ContactItem';
 import React from 'react';
-import Loader from '../Loader/Loader';
-import style from './ContactList.module.css';
-import { useSelector} from 'react-redux';
-import { useFetchContactsQuery} from '../../redux/contacts/contactsApi';
-import { getFilter } from '../../redux/contacts/contactsSelectors';
+import styles from './ContactList.module.css';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectVisibleContacts } from '../../redux/contacts/contactsSelectors';
+import { deleteContact } from '../../redux/contacts/contactOperations';
 
 const ContactList = () => {
-  const { data: contacts, error, isLoading } = useFetchContactsQuery();
-
-  const filter = useSelector(getFilter);
-
-  const filterContacts = () => {
-    return (
-      contacts &&
-      contacts.filter(contact =>
-        contact.name.toLowerCase().includes(filter.toLowerCase())
-      )
-    );
-  };
-
-  const contactList = filterContacts();
-  const renderContacts = contacts && contactList.length > 0;
- 
-
-
+  const contacts = useSelector(selectVisibleContacts);
+  const dispatch = useDispatch();
   return (
-    <>
-      <list className={style.List}>
-      {renderContacts &&
-        contactList.map(({ id, name, number }) => (
-          <ContactItem id={id} key={id} name={name} number={number} />
-        ))}
-      {isLoading && <Loader />}
-      {error && (
-        <error className={style.Error}>Try adding phone details or contact your administrator</error>
-      )}
-    </list>
-      
-  
-    </>
+    <ul className={styles.list}>
+    {contacts.map(({ id, name, number }) => {
+      return (
+        <li key={id}>
+          {name}: {number}
+          <button className={styles.button} type="button" onClick={() => dispatch(deleteContact(id))}>
+            Delete
+          </button>
+        </li>
+      );
+    })}
+  </ul>
   );
 };
 

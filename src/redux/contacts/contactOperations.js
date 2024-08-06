@@ -3,7 +3,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 
-axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
+axios.defaults.baseURL = 'https://connections-api.goit.global/';
 
 export const fetchContacts = createAsyncThunk(
   'contacts/fetchAll',
@@ -28,7 +28,7 @@ export const addContact = createAsyncThunk(
         name: name,
         number: number,
       });
-      toast.info(`${response.name} added to contacts.`);
+      toast.info(`${name} added to contacts.`);
       return response.data;
     } catch (error) {
       toast.error('oops.... something was wrong');
@@ -42,7 +42,7 @@ export const deleteContact = createAsyncThunk(
   async (contactId, thunkAPI) => {
     try {
       const response = await axios.delete(`/contacts/${contactId}`);
-      toast.info(`${response.name} removed from contacts.`);
+      toast.info(`${response.data.name} removed from contacts.`);
       return response.data;
     } catch (error) {
       toast.error('oops.... something was wrong');

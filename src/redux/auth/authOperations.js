@@ -2,7 +2,7 @@ import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { toast } from 'react-toastify';
 
-axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
+axios.defaults.baseURL = 'https://connections-api.goit.global/';
 
 const SIGN_UP_ENDPOINT = '/users/signup';
 const SIGN_IN_ENDPOINT = '/users/login';
@@ -19,7 +19,7 @@ const clearAuthHeader = () => {
   axios.defaults.headers.common.Authorization = '';
 };
 
-const register = createAsyncThunk(
+export const register = createAsyncThunk(
   'auth/register',
   async (credentials, thunkAPI) => {
     try {
@@ -40,12 +40,10 @@ const register = createAsyncThunk(
   }
 );
 
-const logIn = createAsyncThunk('auth/login', async (credentials, thunkAPI) => {
+export const logIn = createAsyncThunk('auth/login', async (credentials, thunkAPI) => {
   try {
     const res = await axios.post(SIGN_IN_ENDPOINT, credentials);
     setAuthHeader(res.data.token);
-    console.log(res.data);
-    console.log(res);
     return res.data;
   } catch (e) {
     if (e.response && e.response.data) {
@@ -58,7 +56,7 @@ const logIn = createAsyncThunk('auth/login', async (credentials, thunkAPI) => {
   }
 });
 
-const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
+export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   try {
     await axios.post(SIGN_OUT_ENDPOINT);
     clearAuthHeader();
@@ -67,7 +65,7 @@ const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   }
 });
 
-const fetchCurrentUser = createAsyncThunk('auth/refresh', async (_, thunkAPI) => {
+export const fetchCurrentUser = createAsyncThunk('auth/refresh', async (_, thunkAPI) => {
   const state = thunkAPI.getState();
   const persistedToken = state.auth.token;
 

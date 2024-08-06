@@ -30,7 +30,6 @@ function PageLogin() {
           < input className={style.PageHomeInput}
             type="email"
             name="email"
-            pattern="([A-z0-9_.-]{1,})@([A-z0-9_.-]{1,}).([A-z]{2,8})"
             title="Enter your email"
             placeholder="Example user@mail.com"
             required

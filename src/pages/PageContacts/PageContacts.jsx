@@ -9,7 +9,7 @@ function PageContacts() {
       <h1 className={style.PageContactTitle}>PHONEBOOK APP</h1>
       <h2>Add new contact</h2>
       <ContactForm />
-
+      
       <h2>Contacts</h2>
       <Filter />
       <ContactList />

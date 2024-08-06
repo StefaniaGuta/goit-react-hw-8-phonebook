@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import authOperations from './authOperations';
+import {register, logIn, logOut, fetchCurrentUser} from './authOperations';
 
 const initialState = {
   user: { name: null, email: null },
@@ -12,40 +12,34 @@ const initialState = {
 const authSlice = createSlice({
   name: 'auth',
   initialState,
-  builder: {
-    [authOperations.register.fulfilled](state, action) {
-      state.user = action.payload.user;
-      state.token = action.payload.token;
-      state.isLoggedIn = true;
-    },
-    [authOperations.register.rejected](state, action) {
-      state.error = action.payload;
-    },
-    [authOperations.logIn.fulfilled](state, action) {
-      state.user = action.payload.user;
-      state.token = action.payload.token;
-      state.isLoggedIn = true;
-    },
-    [authOperations.logIn.rejected](state, action) {
-      state.error = action.payload;
-    },
-    [authOperations.logOut.fulfilled](state) {
-      state.user = { name: null, email: null };
-      state.token = null;
-      state.isLoggedIn = false;
-    },
-    [authOperations.fetchCurrentUser.pending](state) {
-      state.IsFetchingCurrentUser = true;
-    },
-    [authOperations.fetchCurrentUser.fulfilled](state, action) {
-      state.user = action.payload;
-      state.isLoggedIn = true;
-      state.isFetchingCurrentUser = false;
-    },
-    [authOperations.fetchCurrentUser.rejected](state) {
-      state.isFetchingCurrentUser = false;
-    },
+  extraReducers: builder => {
+    builder
+      .addCase(register.fulfilled, (state, action) => {
+        state.user = action.payload.user;
+        state.token = action.payload.token;
+        state.isLoggedIn = true;
+      })
+      .addCase(logIn.fulfilled, (state, action) => {
+        state.user = action.payload.user;
+        state.token = action.payload.token;
+        state.isLoggedIn = true;
+      })
+      .addCase(logOut.fulfilled, state => {
+        state.user = { name: null, email: null };
+        state.token = null;
+        state.isLoggedIn = false;
+      })
+      .addCase(fetchCurrentUser.pending, state => {
+        state.isRefreshing = true;
+      })
+      .addCase(fetchCurrentUser.fulfilled, (state, action) => {
+        state.user = action.payload;
+        state.isLoggedIn = true;
+        state.isRefreshing = false;
+      })
+      .addCase(fetchCurrentUser.rejected, state => {
+        state.isRefreshing = false;
+      });
   },
 });
-
 export const authReducer = authSlice.reducer;
