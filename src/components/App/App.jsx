@@ -14,6 +14,7 @@ const PageRegistration = lazy(() => import('pages/PageRegistration/PageRegistrat
 const PageLogin = lazy(() => import('pages/PageLogin/PageLogin'));
 const PageContacts = lazy(() => import('pages/PageContacts/PageContacts'));
 
+
 const App = () => {
    const dispatch = useDispatch();
   const isFetchingCurrentUser = useSelector(authSelectors.getIsFetchingCurrent);

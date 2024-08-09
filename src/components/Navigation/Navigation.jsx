@@ -18,7 +18,7 @@ function Navigation() {
         <Link className={style.Link}
           to="/contacts"      
         >
-          Contacts
+          Phonebook
         </Link>
       )}
     </nav>

@@ -7,10 +7,10 @@ function PageHome() {
   return (
     <>
       <section className={style.PageHomeSection}>
-            <h1 className={style.PageHomeTitle}>Welcome</h1>
-        <p className={style.PageHomeTitle2}>Organize your contacts easily and stay connected <br></br>with loved
-            ones. Use digital tools to create and maintain <br></br>a
-            comprehensive contact list, and keep in touch through PHONEBOOK.
+            <h1 className={style.PageHomeTitle}>Welcome to our friendly phonebook app</h1>
+        <p className={style.PageHomeTitle2}>Organize your contacts easily and stay connected with loved
+            ones. <br></br> 
+            Use digital tools to create and maintain a comprehensive contact list, and keep in touch through PHONEBOOK.
             </p>
         {!isLoggedIn && (      
           

@@ -23,6 +23,20 @@ const ContactForm = () => {
       return;
     }
 
+    if(number.length !== 10){
+      alert('Your contact need to have 10 numbers');
+      return;
+    };
+
+    const NumberExistInTheList = contacts.some(
+      contact => contact.number.trim() === number.trim()
+    );
+
+    if(NumberExistInTheList){
+      alert(`${number} is already in contacts`);
+      return;
+    }
+
     dispatch(addContact({ name, number }));
     setName('');
     setNumber('');
@@ -45,12 +59,12 @@ const ContactForm = () => {
 
   return (
     <section className={styles.form}>
-    <h1 className={styles.form__title}>Phonebook</h1>
     <form className={styles.form__container} onSubmit={handleSubmit}>
       <label className={styles.form__label}>Name</label>
       <input
         type="text"
         name="name"
+        value={name} 
         className={styles.form__input}
         onChange={handleChange}
         title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
@@ -61,6 +75,7 @@ const ContactForm = () => {
       <input
         type="tel"
         name="number"
+        value={number} 
         className={styles.form__input}
         onChange={handleChange}
         title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"

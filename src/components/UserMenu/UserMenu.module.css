@@ -1,28 +1,30 @@
 .MenuContainer {
-display: flex;
-align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .MenuBox  {
-display: flex;
-flex-direction: column;
-margin-right: 20px;
+  display: flex;
+  margin-right: 20px;
 }
 
 .MenuTitle  {
-font-size: 16px;
-margin: 0;
-color: var(--primaryTextColor);
-transition: all 0.5s ease;
-text-shadow: 2px 2px 4px blue;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1px;
+  color: grey;
+  transition: all 0.5s ease;
+  text-shadow: 2px 2px 4px rgb(85, 85, 132);
+  width: 150px;
+  text-align: center;
+  text-transform: capitalize;
 }
 
-
 .MenuBtn {
-display: flex;
-align-items: center;
-justify-content: center;
-width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
   height: 100%;
   padding: 5px;
   border-radius: 20px;
@@ -30,12 +32,11 @@ width: 100px;
   cursor: pointer;
   font-size: 15px;
   box-shadow: 17px 17px 84px 18px rgba(21, 15, 15, 0.2) inset;
-  border: 2px solid rgb(252, 6, 6);
-  background-color: #eb1d1d;
+  border: 1px solid rgb(108, 107, 107);
 
 }
 
-.MenuBtn :hover,
-.MenuBtn :focus {
-background-color: rgb(114, 113, 114);
+.MenuBtn:hover,
+.MenuBtn:focus {
+  background-color: rgb(114, 113, 114);
 }

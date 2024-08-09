@@ -4,11 +4,35 @@
   width: 100%;
 }
 
-.Error {
-  font-size: 24px;
-  font-weight: 500;
-  line-height: 1.62;
-  letter-spacing: 0.03em;
-  text-align: center;
-  color: #232323;
+.ContactsList {
+  text-transform: capitalize;
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.3s ease-in-out;
 }
+
+.button {
+  width: 90px;
+  padding: 5px;
+  border-radius: 20px;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 14px;
+  text-align: center;
+  box-shadow: 17px 17px 84px 18px rgba(21, 15, 15, 0.2) inset;
+  border: 1px solid rgb(108, 107, 107);
+  margin-left: 15px;
+  transition: all 0.3s ease-in-out;
+}
+
+.button:hover,
+.button:focus {
+  background-color: rgb(114, 113, 114);
+}
+
+  .ContactsList:hover{
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    transform: translateY(-4px);
+  }

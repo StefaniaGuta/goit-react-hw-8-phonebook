@@ -25,9 +25,9 @@ function PageLogin() {
     <section className={style.PageLoginSection}>
       <h1 className={style.PageLoginTitle}>Please enter your email and password</h1>
       <form onSubmit={handleSubmit}>
-        <label className={style.PageHomeLabel}>
+        <label className={style.PageLogInLabel}>
           Email
-          < input className={style.PageHomeInput}
+          < input className={style.PageLogInInput}
             type="email"
             name="email"
             title="Enter your email"
@@ -38,9 +38,9 @@ function PageLogin() {
           />
         </label>
 
-        < label className={style.PageHomeLabel}>
+        < label className={style.PageLogInLabel}>
           Password
-          <input className={style.PageHomeInput}
+          <input className={style.PageLogInInput}
             type="password"
             name="password"
             title="Enter your password"
@@ -48,7 +48,7 @@ function PageLogin() {
             value={password}
             onChange={handleChange}
           />
-            <button className={style.pageHomeBtn} type="submit" >Log In</button>
+            <button className={style.pageLogInBtn} type="submit" >Log In</button>
         </label>
       </form>
     </section>
